@@ -25,6 +25,22 @@ export class AppComponent implements OnInit{
     this.getAllCards();
   }
 
+
+  numberupdate(_number:string){
+    var mask = "";
+    if(_number){
+      for(let i=1;i<_number.length-4;i++){
+        mask += "X";
+      }
+
+      return mask + _number.slice(12,16);
+    }
+    else{
+      return null;
+    }
+
+  }
+
   getAllCards(){
     this.cardService.getAllCards()
     .subscribe(
